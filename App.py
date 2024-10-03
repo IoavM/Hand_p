@@ -18,7 +18,7 @@ with st.sidebar:
     st.subheader('TABLERO')
     stroke_width = st.slider('Selecciona el ancho de línea', 1, 30, 15)
     stroke_color = st.color_picker("Pick A Color", "#00f900")
-    st.write("The current color is", color)
+    st.write("The current color is", stroke_color)
     
     
 # Create a canvas component
