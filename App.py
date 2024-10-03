@@ -7,7 +7,7 @@ from streamlit_drawable_canvas import st_canvas
 
 # Streamlit 
 st.set_page_config(page_title='Reconocimiento de Dígitos', layout='wide')
-st.title('Reconocimiento de Dígitos )
+st.title('Reconocimiento de Dígitos' )
 st.subheader("Dibuja el digito para prdecir el número")
 
 # Add canvas component
