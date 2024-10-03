@@ -17,7 +17,7 @@ bg_color = '#b227aa'      # Background color black
 with st.sidebar:
     st.subheader('TABLERO')
     stroke_width = st.slider('Selecciona el ancho de línea', 1, 30, 15)
-    st.subtitle('Color')
+    st.subheader('Color')
     stroke_color = st.color_picker("Selecciona un color", "#00f900")
     st.write("Color: ", stroke_color)
     
