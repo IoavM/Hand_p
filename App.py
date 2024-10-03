@@ -29,10 +29,6 @@ canvas_result = st_canvas(
 )
 
 # Ensure the user has drawn something
-if canvas_result.image_data is not None:
-    st.image(canvas_result.image_data)  # Show the image as preview (if needed)
-    # Here, you can process the image further if needed using PIL
-
 # Add "Predict Now" button (currently not functional)
 if st.button("Predecir Ahora"):
     st.write("Funcionalidad de predicción pendiente")
