@@ -14,7 +14,7 @@ st.subheader("Dibuja el dígito para predecir el número")
 drawing_mode = "freedraw"
 stroke_width = st.slider('Selecciona el ancho de línea', 1, 30, 15)
 stroke_color = '#FFFFFF'  # Drawing color white
-bg_color = '#000000'      # Background color black
+bg_color = '#b227aa'      # Background color black
 
 # Create a canvas component
 canvas_result = st_canvas(
