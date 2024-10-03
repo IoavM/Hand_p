@@ -1,21 +1,20 @@
-
-from PIL import Image, ImageOps
+import streamlit as st
 from streamlit_drawable_canvas import st_canvas
+from PIL import Image, ImageOps
 
-# App
-
-
-# Streamlit 
+# App Setup
 st.set_page_config(page_title='Reconocimiento de Dígitos', layout='wide')
-st.title('Reconocimiento de Dígitos' )
-st.subheader("Dibuja el digito para prdecir el número")
+
+st.title('Reconocimiento de Dígitos')
+
+st.subheader("Dibuja el dígito para predecir el número")
 
 # Add canvas component
-# Specify canvas parameters in application
+# Specify canvas parameters in the application
 drawing_mode = "freedraw"
 stroke_width = st.slider('Selecciona el ancho de línea', 1, 30, 15)
-stroke_color = '#FFFFFF' # Set background color to white
-bg_color = '#000000'
+stroke_color = '#FFFFFF'  # Drawing color white
+bg_color = '#000000'      # Background color black
 
 # Create a canvas component
 canvas_result = st_canvas(
@@ -26,15 +25,21 @@ canvas_result = st_canvas(
     height=200,
     width=200,
     key="canvas",
+    drawing_mode=drawing_mode
 )
 
-# Add "Predict Now" button
+# Ensure the user has drawn something
+if canvas_result.image_data is not None:
+    st.image(canvas_result.image_data)  # Show the image as preview (if needed)
+    # Here, you can process the image further if needed using PIL
 
-# Add sidebar
+# Add "Predict Now" button (currently not functional)
+if st.button("Predecir Ahora"):
+    st.write("Funcionalidad de predicción pendiente")
+
+# Add sidebar information
 st.sidebar.title("Acerca de:")
-st.sidebar.text("En esta aplicación se evalua ")
-st.sidebar.text("la capacidad de un RNA de reconocer") 
-st.sidebar.text("digitos escritos a mano.")
-st.sidebar.text("Basado en desarrollo de Vinay Uniyal")
-#st.sidebar.text("GitHub Repository")
-#st.sidebar.write("[GitHub Repo Link](https://github.com/Vinay2022/Handwritten-Digit-Recognition)")
+st.sidebar.text("En esta aplicación se evalúa")
+st.sidebar.text("la capacidad de una RNA de reconocer")
+st.sidebar.text("dígitos escritos a mano.")
+st.sidebar.text("Basado en el desarrollo de Vinay Uniyal.")
