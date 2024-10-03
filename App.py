@@ -16,6 +16,9 @@ stroke_width = st.slider('Selecciona el ancho de línea', 1, 30, 15)
 stroke_color = '#FFFFFF'  # Drawing color white
 bg_color = '#b227aa'      # Background color black
 
+with st.sidebar:
+    st.subheader('TABLERO')
+    stroke_width = st.slider('Selecciona el ancho de línea', 1, 30, 15)
 # Create a canvas component
 canvas_result = st_canvas(
     fill_color="rgba(178, 39, 170 )",  # Fixed fill color with some opacity
@@ -34,7 +37,5 @@ if st.button("Predecir Ahora"):
     st.write("Funcionalidad de predicción pendiente")
 
 # Add sidebar information
-with st.sidebar:
-    st.subheader('TABLERO')
-    stroke_width = st.slider('Selecciona el ancho de línea', 1, 30, 15)
+
     
