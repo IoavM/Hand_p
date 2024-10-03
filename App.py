@@ -1,4 +1,4 @@
-import tensorflow as tf
+
 from PIL import Image, ImageOps
 from streamlit_drawable_canvas import st_canvas
 
