@@ -17,8 +17,9 @@ bg_color = '#b227aa'      # Background color black
 with st.sidebar:
     st.subheader('TABLERO')
     stroke_width = st.slider('Selecciona el ancho de línea', 1, 30, 15)
-    stroke_color = st.color_picker("Pick A Color", "#00f900")
-    st.write("The current color is", stroke_color)
+    st.subtitle('Color')
+    stroke_color = st.color_picker("Selecciona un color", "#00f900")
+    st.write("Color: ", stroke_color)
     
     
 # Create a canvas component
