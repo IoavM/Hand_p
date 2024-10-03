@@ -1,9 +1,5 @@
 import tensorflow as tf
 from PIL import Image, ImageOps
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-import streamlit as st
 from streamlit_drawable_canvas import st_canvas
 
 # App
@@ -21,9 +17,9 @@ def predictDigit(image):
     return result
 
 # Streamlit 
-st.set_page_config(page_title='Reconocimiento de Dígitos escritos a mano', layout='wide')
-st.title('Reconocimiento de Dígitos escritos a mano')
-st.subheader("Dibuja el digito en el panel  y presiona  'Predecir'")
+st.set_page_config(page_title='Reconocimiento de Dígitos', layout='wide')
+st.title('Reconocimiento de Dígitos )
+st.subheader("Dibuja el digito para prdecir el número")
 
 # Add canvas component
 # Specify canvas parameters in application
