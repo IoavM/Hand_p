@@ -39,6 +39,10 @@ canvas_result = st_canvas(
 if st.button("Predecir Ahora"):
     st.write("Funcionalidad de predicción pendiente")
 
+resp = st.checkbox('¿ Acertó el número ?')
+if resp:
+    st.text('Excelente')
+
 # Add sidebar information
 
     
