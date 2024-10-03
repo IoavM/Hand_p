@@ -34,8 +34,7 @@ if st.button("Predecir Ahora"):
     st.write("Funcionalidad de predicción pendiente")
 
 # Add sidebar information
-st.sidebar.title("Acerca de:")
-st.sidebar.text("En esta aplicación se evalúa")
-st.sidebar.text("la capacidad de una RNA de reconocer")
-st.sidebar.text("dígitos escritos a mano.")
-st.sidebar.text("Basado en el desarrollo de Vinay Uniyal.")
+with st.sidebar:
+    st.subheader('TABLERO')
+    stroke_width = st.slider('Selecciona el ancho de línea', 1, 30, 15)
+    
