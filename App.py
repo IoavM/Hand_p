@@ -28,7 +28,7 @@ st.subheader("Dibuja el dígito para predecir el número")
 # Add canvas component
 # Specify canvas parameters in the application
 drawing_mode = "freedraw"
-bg_color = '#000000'      # Background color black
+    # Background color black
 
 with st.sidebar:
     st.subheader('TABLERO')
@@ -36,6 +36,8 @@ with st.sidebar:
     st.subheader('Color')
     stroke_color = st.color_picker("Selecciona un color", "#000000")
     st.write("Color: ", stroke_color)
+    bg_color = st.color_picker("Selecciona un color", "#000000")
+    st.write("Color: ", bg_color)
     
     
 # Create a canvas component
