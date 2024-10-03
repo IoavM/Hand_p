@@ -3,3 +3,4 @@ tensorflow
 matplotlib 
 streamlit-drawable-canvas 
 matplotlip
+openai
