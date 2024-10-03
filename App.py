@@ -6,6 +6,18 @@ import matplotlib.pyplot as plt
 import streamlit as st
 from streamlit_drawable_canvas import st_canvas
 
+def predictDigit(image):
+    model = tf.keras.models.load_model("model/handwritten.h5")
+    image = ImageOps.grayscale(image)
+    img = image.resize((28,28))
+    img = np.array(img, dtype='float32')
+    img = img/255
+    plt.imshow(img)
+    plt.show()
+    img = img.reshape((1,28,28,1))
+    pred= model.predict(img)
+    result = np.argmax(pred[0])
+    return result
 # App Setup
 st.set_page_config(page_title='Reconocimiento de Dígitos', layout='wide')
 
@@ -40,8 +52,16 @@ canvas_result = st_canvas(
 
 # Ensure the user has drawn something
 # Add "Predict Now" button (currently not functional)
-if st.button("Predecir Ahora"):
-    st.write("Funcionalidad de predicción pendiente")
+if st.button('Predecir'):
+    if canvas_result.image_data is not None:
+        input_numpy_array = np.array(canvas_result.image_data)
+        input_image = Image.fromarray(input_numpy_array.astype('uint8'),'RGBA')
+        input_image.save('prediction/img.png')
+        img = Image.open("prediction/img.png")
+        res = predictDigit(img)
+        st.header('El Digito es : ' + str(res))
+    else:
+        st.header('Por favor dibuja en el canvas el digito.')
 
 resp = st.checkbox('¿ Acertó el número ?')
 if resp:
