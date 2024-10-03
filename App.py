@@ -18,7 +18,7 @@ with st.sidebar:
     st.subheader('TABLERO')
     stroke_width = st.slider('Selecciona el ancho de línea', 1, 30, 15)
     st.subheader('Color')
-    stroke_color = st.color_picker("Selecciona un color", "#00f900")
+    stroke_color = st.color_picker("Selecciona un color", "#000000")
     st.write("Color: ", stroke_color)
     
     
