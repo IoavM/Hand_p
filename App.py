@@ -18,6 +18,7 @@ def predictDigit(image):
     pred= model.predict(img)
     result = np.argmax(pred[0])
     return result
+
 # App Setup
 st.set_page_config(page_title='Reconocimiento de Dígitos', layout='wide')
 
@@ -28,24 +29,24 @@ st.subheader("Dibuja el dígito para predecir el número")
 # Add canvas component
 # Specify canvas parameters in the application
 drawing_mode = "freedraw"
-    # Background color black
-bg_color =  "#000000"
 
 with st.sidebar:
     st.subheader('TABLERO')
     stroke_width = st.slider('Selecciona el ancho de línea', 1, 30, 15)
-    st.subheader('Color')
+    st.subheader('Color del trazo')
     stroke_color = st.color_picker("Selecciona un color", "#000000")
-    st.write("Color: ", stroke_color)
+    st.write("Color del trazo: ", stroke_color)
     
-    
+    st.subheader('Color de fondo')
+    bg_color = st.color_picker("Selecciona el color de fondo", "#FFFFFF")
+    st.write("Color de fondo: ", bg_color)
     
 # Create a canvas component
 canvas_result = st_canvas(
-    fill_color="rgba(178, 39, 170 )",  # Fixed fill color with some opacity
+    fill_color="rgba(178, 39, 170)",  # Fixed fill color with some opacity
     stroke_width=stroke_width,
     stroke_color=stroke_color,
-    background_color=bg_color,
+    background_color=bg_color,  # Background color selected by the user
     height=200,
     width=750,
     key="canvas",
@@ -53,22 +54,18 @@ canvas_result = st_canvas(
 )
 
 # Ensure the user has drawn something
-# Add "Predict Now" button (currently not functional)
 if st.button('Predecir'):
     if canvas_result.image_data is not None:
         input_numpy_array = np.array(canvas_result.image_data)
-        input_image = Image.fromarray(input_numpy_array.astype('uint8'),'RGBA')
+        input_image = Image.fromarray(input_numpy_array.astype('uint8'), 'RGBA')
         input_image.save('prediction/img.png')
         img = Image.open("prediction/img.png")
         res = predictDigit(img)
-        st.header('El Digito es : ' + str(res))
+        st.header('El Dígito es: ' + str(res))
     else:
-        st.header('Por favor dibuja en el canvas el digito.')
+        st.header('Por favor dibuja en el canvas el dígito.')
 
-resp = st.checkbox('¿ Acertó el número ?')
+# Checkbox for user feedback
+resp = st.checkbox('¿Acertó el número?')
 if resp:
-    st.text('Excelente')
-
-# Add sidebar information
-
-    
+    st.text('¡Excelente!')
